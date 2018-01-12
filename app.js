@@ -21,7 +21,7 @@ var blog  = require('./routes/blog');
 var app = express();
 
 //monk connection url
-var url = 'localhost:27017/blog';
+var url = 'mongodb://heroku_rmccmj2z:8imor4kqhtosqbp7d90ra71183@ds255347.mlab.com:55347/heroku_rmccmj2z';
 var db = monk(url);
 
 
