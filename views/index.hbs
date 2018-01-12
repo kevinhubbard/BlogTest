@@ -1,2 +1,8 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+{{#if data}}
+	{{#each data}}
+		<li><a href="/posts/show/{{this._id}}">{{this.title}}</a></li>
+		<p>By:{{this.author}}</p>
+	{{/each}}
+{{/if}}
