@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var multer = require('multer');
 var upload = multer({dest: 'uploads/'});
-var moment = require('moment');
 var expressValidator = require('express-validator');
 var flash = require('connect-flash');
 var mongo = require('mongodb');
@@ -19,6 +18,7 @@ var about = require('./routes/about');
 var blog  = require('./routes/blog');
 
 var app = express();
+app.locals.moment = require('moment');
 
 //monk connection url
 var url = 'mongodb://heroku_rmccmj2z:8imor4kqhtosqbp7d90ra71183@ds255347.mlab.com:55347/heroku_rmccmj2z';
