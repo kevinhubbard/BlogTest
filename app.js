@@ -15,7 +15,7 @@ var monk = require('monk');
 //require our routes
 var index = require('./routes/index');
 var about = require('./routes/about');
-var blog  = require('./routes/blog');
+var post  = require('./routes/blogpost');
 
 var app = express();
 app.locals.moment = require('moment');
@@ -79,7 +79,7 @@ app.use(function(req,res,next){
 // USE OUR ROUTS
 app.use('/', index);
 app.use('/about', about);
-app.use('/blog', blog);
+app.use('/post', post);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
