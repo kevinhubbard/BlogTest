@@ -10,7 +10,16 @@ var db = monk(url);
 
 // get blog page
 router.get('/add', function(req, res, next){
-	res.render('post', {title: 'Add blog Post'});
+	var categories = db.get('categories');
+
+	categories.find({}, {}, function(err, categories){
+		console.log(categories);
+		res.render('post', {
+			title: 'Add blog Post',
+			categories: categories
+		});
+	});
+
 });
 
 router.post('/add',  upload.single('mainimage'), function(req, res, next){
@@ -50,7 +59,7 @@ router.post('/add',  upload.single('mainimage'), function(req, res, next){
 			if(err) {
 				res.send(err);
 			}	else {
-				req.flash('success', "Post Added");
+				
 				res.location('/');
 				res.redirect('/');
 			}
